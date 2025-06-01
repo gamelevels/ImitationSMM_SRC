@@ -1,0 +1,110 @@
+﻿@model List<DataObjects.models.Ticket>
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+
+@{
+    ViewBag.Title = "Tickets";
+    ApplicationUserManager manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    var user = manager.FindById(User.Identity.GetUserId());
+}
+
+<style>
+    .ticket {
+        background-color: gray;
+        color: skyblue;
+        border: none;
+        transition: transform 0.3s;
+        border: 2px solid lightgray;
+    } 
+    .ticket:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+<main class="d-flex" style="overflow-x: hidden;">
+    @Html.Partial("_Navigation")
+    <div class="m-5 bg-mainbackground border rounded-3 w-100 d-flex flex-column align-items-center" style="height: 85vh; overflow-y: auto;">
+        <div class="container" style="padding: 0px 1.5em 0px 1.5em">
+            <h1 class="text-center">
+                @if (user.Level == 10)
+                {
+                    <text>Submitted Tickets</text>
+                }
+                else
+                {
+                    <text>My Support Tickets</text>
+                }
+            </h1>
+        </div>
+        <div style="flex-grow: 1; overflow-y: auto;">
+            <div class="container">
+                @if (Model.Any())
+                {
+                    <div class="row">
+                        @{
+                            var colWidth = Model.Count <= 3 ? "col-md-" + (12 / Model.Count) : "col-md-4";
+                        }
+                        @foreach (var ticket in Model)
+                        {
+                            <div class="@colWidth my-2">
+                                <div class="card ticket-card mb-3 border-3 ticket" style="height: 100%;">
+                                    <div class="card-body bg-lightishgray d-flex flex-column rounded">
+                                        <h5 class="card-title">@ticket.Submitter: @ticket.Title</h5>
+                                        <div class="issue-container flex-grow-1">
+                                            <p class="card-text">@ticket.Issue</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <p class="text-white">
+                                                Priority:
+                                                @if (ticket.Priority == 1)
+                                                {
+                                                    <span class="text-info">Low</span>
+                                                }
+                                                else if (ticket.Priority == 2)
+                                                {
+                                                    <span class="text-warning">Urgent</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-danger fw-bolder">Critical</span>
+                                                }
+                                                <br />
+                                                Status:
+                                                @if (ticket.Resolved)
+                                                {
+                                                    <span class="badge bg-success">Resolved</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-danger">Unresolved</span>
+                                                }
+                                                <br />
+                                                Ticket ID: @ticket.ID.ToString().Substring(30)
+                                            </p>
+                                            @if (user.Level == 10)
+                                            {
+                                                <a href="@Url.Action("TicketView", "Main", new { id = ticket.ID })" class="btn btn-outline-cyan align-self-center">Update Ticket</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("TicketView", "Main", new { id = ticket.ID })" class="btn btn-outline-cyan align-self-center">View Ticket</a>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p class="text-center">No tickets submitted.</p>
+                }
+            </div>
+        </div>
+        @if (user.Level != 10)
+        {
+            <a href="@Url.Action("CreateTicket", "Main")" class="btn btn-outline-cyan mb-2 py-2">Create a new Support Ticket</a>
+        }
+    </div>
+</main>

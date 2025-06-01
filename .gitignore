@@ -1,0 +1,156 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+*.log
+*.pot
+*.mo
+*.egg
+*.egg-info/
+dist/
+build/
+develop-eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+*.manifest
+*.spec
+*.sqlite3
+
+# Python virtual environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# PyInstaller
+*.spec
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre
+.pyre/
+
+# Coverage
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Pytest
+.pytest_cache/
+
+# ======================
+# .NET / ASP.NET (Web & Desktop)
+# ======================
+## Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+*.user
+*.rsuser
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.log
+*.dbmdl
+
+## Visual Studio files
+.vscode/
+*.VC.db
+*.VC.VC.opendb
+*.ncb
+*.sdf
+*.opensdf
+
+## ASP.NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+*.psmdcp
+*.nuget/
+packages/
+# Uncomment if you use NuGet Package Restore
+# **/packages/*
+
+## Rider
+.idea/
+
+## User-specific files
+*.userprefs
+
+## Publish outputs
+wwwroot/dist/
+wwwroot/node_modules/
+wwwroot/lib/
+
+## Others
+_ReSharper*/
+*.DotSettings.user
+*.DotCover
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*.swp
+*.swo
+*.swn
+
+# ======================
+# Node/NPM (if used in ASP.NET Web projects)
+# ======================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+build/
+
+# ======================
+# Logs & Misc
+# ======================
+*.log
+*.pid
+*.pid.lock
+
+*.resx
+*.vs/

@@ -1,0 +1,28 @@
+﻿<header class="d-flex align-items-center justify-content-between bg-lightgray-foreground bg-dimmergray px-5 text-light" style="height: 60px;">
+    <div class="col-md-4 d-flex align-items-center">
+        <img class="headerimg mb-2" src="~/Images/MainIcon.png" />
+        <a href="@Url.Action("Index", "Home")" class="text-decoration-none" style="color: whitesmoke">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="d-flex align-items-center">
+                    <h1 class="d-inline-block">ImitationSMM - </h1>
+                    <h5 class="d-inline-block align-self-center px-2 pt-2">@User.Identity.Name</h5>
+                </div>
+            }
+            else
+            {
+                <h1 class="d-inline-block">ImitationSMM</h1>
+            }
+        </a>
+    </div>
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <ul class="nav col-md-auto mb-2 justify-content-center mb-md-0">
+            <li class="px-3">@Html.ActionLink("Features", "Features", "Home", new { area = "" }, new { @class = "btn-nav-link" })</li>
+            <li class="px-3">@Html.ActionLink("Pricing", "Pricing", "Home", new { area = "" }, new { @class = "btn-nav-link" })</li>
+            <li class="px-3">@Html.ActionLink("FAQ", "FAQ", "Home", new { area = "" }, new { @class = "btn-nav-link" })</li>
+        </ul>
+    }
+    @Html.Partial("_LoginPartial")
+</header>

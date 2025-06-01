@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<style>
+    .card {
+        width: 250px;
+        height: 300px;
+        transition: transform 0.3s;
+    }
+
+    .card:hover {
+        transform: scale(1.05); 
+    }
+</style>
+
+<main class="container body-div">
+    <div class="container-fluid py-5 rounded-3 text-center border border-white align-items-center" style="background-color: dimgray; color: lightgray; margin-top: 10em;">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="display-5 fw-bold mb-4">Social media marketing made easy</h1>
+                <p class="fs-5">Looking for a boost to your social media platforms? ImitationSMM makes it easy. Starting at $5/month, gain access to many popular platforms.</p>
+                <a href="@Url.Action("Register", "Account")" class="btn btn-outline-cyan btn-lg mt-4">Sign up here!</a>
+            </div>
+        </div>
+    </div>
+    <section class="py-5" style="margin-top: 21em;">
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center mt-3">
+                <h2 class="text-center mb-5 p-2 pt-1 border rounded border-white header-text">Testimonials</h2>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="card h-100 shadow w-100" style="background-color: dimgray; color: skyblue;">
+                        <div class="card-body text-center">
+                            <img src="~/Images/defaultpfp.jpg" class="rounded-circle mb-3" alt="Vouch 01" style="width: 100px;">
+                            <h5 class="card-title">Johnny Crackpipe</h5>
+                            <p class="card-text">Quick Responses!</p>
+                            <p class="card-text">"10/10 would use again."</p>
+                        </div>
+                        <div class="card-footer bg-info border-0">
+                            <small class="text-muted fw-bold">- 08/18</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="card h-100 shadow w-100" style="background-color: dimgray; color: skyblue;">
+                        <div class="card-body text-center">
+                            <img src="~/Images/defaultpfp.jpg" class="rounded-circle mb-3" alt="Vouch 02" style="width: 100px;">
+                            <h5 class="card-title">Abella Danger</h5>
+                            <p class="card-text">Cheap Prices</p>
+                            <p class="card-text">"10/10 would use again."</p>
+                        </div>
+                        <div class="card-footer bg-info border-0">
+                            <small class="text-muted fw-bold">- 01/22</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="card h-100 shadow w-100" style="background-color: dimgray; color: skyblue;">
+                        <div class="card-body text-center">
+                            <img src="~/Images/defaultpfp.jpg" class="rounded-circle mb-3" alt="Vouch 03" style="width: 100px;">
+                            <h5 class="card-title">Johnny Dang</h5>
+                            <p class="card-text">No Title</p>
+                            <p class="card-text">"10/10 would use again."</p>
+                        </div>
+                        <div class="card-footer bg-info border-0">
+                            <small class="text-muted fw-bold">- 04/23</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+</main>
+@Html.Partial("_Footer")

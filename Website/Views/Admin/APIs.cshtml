@@ -1,0 +1,61 @@
+﻿@model List<DataObjects.models.API>
+
+@{
+    ViewBag.Title = "APIs";
+}
+
+<main class="d-flex" style="overflow-x: hidden;">
+    <div class="d-flex justify-content-center align-items-center">
+        @Html.Partial("_Navigation")
+    </div>
+
+    <div class="m-5 bg-mainbackground border rounded-3 w-100 d-flex justify-content-evenly align-items-center" style="height: 85vh;">
+        <div class="text-center w-75" style="margin-bottom: 15em;">
+            <div class="d-flex justify-content-center align-items-center mt-3">
+                <h2 class="text-center mb-2 p-2 pt-1 border border-white test-header header-text">All APIs</h2>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                @if (Model.Count != 0)
+                {
+                    foreach (var api in Model)
+                    {
+                        <div class="col">
+                            <div class="card mb-4 rounded-3 shadow-sm pricing-card">
+                                <div class="card-header py-3 pricing-card-header">
+                                    <h4 class="my-0 fw-bold">@api.Name</h4>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled mt-3 mb-4 fs-5">
+                                        <li>
+                                            <strong>URL:</strong> @api.Link
+                                        </li>
+                                        <li>
+                                            <strong>Key:</strong> @api.Key
+                                        </li>
+                                        <li>Active RQs: <strong>@api.ActiveRequests</strong></li>
+                                        <li>Total RQs: <strong>@api.TotalRequests</strong></li>
+                                        <li>
+                                            Remaining Balance: <strong>$@Math.Round(api.Balance, 3)</strong>
+                                        </li>
+                                    </ul>
+                                    <button type="button" class="w-50 btn btn-lg btn-info h-25 btnpurchase">View API</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="text-center d-flex">
+                        <h2>No available APIs</h2>
+                    </div>
+                }
+            </div>
+            <button class="btn btn-outline-cyan mb-2">
+                @Html.ActionLink("Return to Admin Page", "Index", "Admin", routeValues: null, htmlAttributes: new { @class = "nav-link btn-outline-cyan" })
+            </button>
+        </div>
+    </div>
+
+</main>

@@ -1,0 +1,122 @@
+﻿@model DataObjects.models.Ticket
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+
+@{
+    ViewBag.Title = "Support Ticket";
+    ApplicationUserManager manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    var user = manager.FindById(User.Identity.GetUserId());
+    var allMessages = Model.UserMessages.Concat(Model.SupportMessages).OrderBy(m => m.SentTime);
+}
+
+<main class="d-flex" style="overflow-x: hidden;">
+    @Html.Partial("_Navigation")
+    <div class="m-5 bg-mainbackground border rounded-3" style="width: 100%; height: 85vh;">
+        <div class="row justify-content-center w-100 h-100">
+            <div class="col-md-12 d-flex justify-content-around mt-5" style="height: 80%;">
+                <div class="card bg-lightishgray" style="width: 25%; height: 63%">
+                    <div class="card-header text-white bg-dimmergray d-flex justify-content-between align-items-center">
+                        <h3 class="card-title text-center">Ticket Details</h3>
+                    </div>
+                    <div class="card-body text-center">
+                        <form action="@Url.Action("UpdateTicket", "Main", new { id = Model.ID })" method="post">
+                            <div class="mb-3">
+                                <label for="tbTitle" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="tbTitle" name="tbTitle" value="@Model.Title" style="width: 100%; background-color: white; color: black;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="selectPriority" class="form-label">Priority</label>
+                                <select class="form-select" id="selectPriority" name="selectPriority">
+                                    <option value="1" @if (Model.Priority == 1) { <text> selected</text> }>Low</option>
+                                    <option value="2" @if (Model.Priority == 2) { <text> selected</text> }>Urgent</option>
+                                    <option value="3" @if (Model.Priority == 3) { <text> selected</text> }>Critical</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <input type="checkbox" class="form-check-input mt-2" id="cbResolved" name="cbResolved"
+                                       @if (Model.Resolved) { <text> checked</text>}>
+                                <label class="form-check-label" for="cbResolved">Resolved</label>
+                            </div>
+                            <button type="submit" class="btn btn-outline-cyan d-block mx-auto">Submit</button>
+                            <a href="@Url.Action("Tickets", "Main")" class="btn btn-outline-cyan mt-2 d-block mx-auto w-75">All Tickets</a>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="card bg-lightishgray" style="width: 65%; height: 100%;">
+                    <div class="card-header text-white bg-dimmergray">
+                        <h3 class="card-title text-center">
+                            @if (user.Level == 10)
+                            {
+                                <text>[ADMIN] Support Ticket - @Model.ID.ToString().Substring(30)</text>
+                            }
+                            else
+                            {
+                                <text>[CLIENT] Support Ticket - @Model.ID.ToString().Substring(30)</text>
+
+                            }
+                        </h3>
+                    </div>
+                    <div class="card-body overflow-auto bg-lightgray text-white" id="chatContainer">
+                        <div class="container">
+                            <div class="ticket-chat">
+                                @foreach (var message in allMessages)
+                                {
+                                    if (user.Level == 10)
+                                    {
+                                        <div class="message">
+                                            <div class="message-content">
+                                                <div class="d-flex justify-content-@(message.IsStaff ? "end" : "start")">
+                                                    <span class="message-username">@((message.IsStaff) ? "[SUPPORT] " : "")@message.Sender</span>
+                                                </div>
+                                                <div class="d-flex justify-content-@(message.IsStaff ? "end" : "start")">
+                                                    <p class="fs-3">@message.Message</p>
+                                                </div>
+                                                <div class="d-flex justify-content-@(message.IsStaff ? "end" : "start")">
+                                                    <span class="message-time">@message.SentTime.ToString("MM/dd/yyyy hh:mm tt")</span>
+                                                </div>
+                                            </div>
+                                        </div><hr class="message-separator">
+                                    }
+                                    else
+                                    {
+                                        <div class="message">
+                                            <div class="message-content">
+                                                <div class="d-flex justify-content-@(message.IsStaff ? "start" : "end")">
+                                                    <span class="message-username">@((message.IsStaff) ? "[SUPPORT] " : "")@message.Sender</span>
+                                                </div>
+                                                <div class="d-flex justify-content-@(message.IsStaff ? "start" : "end")">
+                                                    <p class="fs-3">@message.Message</p>
+                                                </div>
+                                                <div class="d-flex justify-content-@(message.IsStaff ? "start" : "end")">
+                                                    <span class="message-time">@message.SentTime.ToString("hh:mm tt")</span>
+                                                </div>
+                                            </div>
+                                        </div><hr class="message-separator">
+                                    }
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <form action="@Url.Action("UpdateTicket", "Main", new { id = Model.ID })" method="post" class="card-footer bg-dimmergray text-center">
+                        <div class="input-group justify-content-end h-75">
+                            <textarea name="sentMessage" class="form-control" placeholder="@if (user.Level == 10)
+                            {
+<text>Hello, how may we help you today?</text>
+                                } else {
+<text>Hello, I need help!</text>
+                            } "></textarea>
+                            <button class="btn btn-outline-cyan" type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    var chat = document.getElementById('chatContainer');
+    chat.scrollTop = chat.scrollHeight;
+</script>

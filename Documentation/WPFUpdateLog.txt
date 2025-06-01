@@ -1,0 +1,135 @@
+--------------------------
+Imitation SMM [12/07/2023]
+--------------------------
+- Fine tuned some logic
+- Added cancel button logic
+- Touched up on async requests
+- Redid er diagram
+- Completed what I wanted as far as requirements
+	- Will work on project over break
+--------------------------
+Imitation SMM [12/05/2023]
+--------------------------
+- Finshed admin tab
+- Finished user update tab
+- Finsihed api update tab
+- Finished webhook tab
+
+--------------------------
+Imitation SMM [12/04/2023]
+--------------------------
+- Finished user manager test/fakes
+- Created all fakes/test outlines
+
+--------------------------
+Imitation SMM [11/23/2023-12/03/2023]
+--------------------------
+- Forgot to document day by day
+- Finished settings, update account
+- Finished main tab
+- Finished python api
+- Finished settings/help pages
+- Need to start/finish admin page
+--------------------------
+Imitation SMM [11/22/2023]
+--------------------------
+- Fixed token access
+- Added level access
+- Finish register logic
+- Fixed claim token access
+- Added currentUser to current tabs
+
+--------------------------
+Imitation SMM [11/21/2023]
+--------------------------
+- Updated more SPs
+- Split db sql into multiple files
+--------------------------
+Imitation SMM [11/19/2023]
+--------------------------
+- Updated token SPs
+- Added token logic
+- Almost finished register
+--------------------------
+Imitation SMM [11/11/2023]
+--------------------------
+- Added hide/show password (login/register)
+- Added select user to accessor
+- Finished logic for test/real login
+- Added CloseParent class for handling windows
+- Added select user, level information access handlers
+--------------------------
+Imitation SMM [11/09/2023]
+--------------------------
+- Created tests for methods
+--------------------------
+Imitation SMM [11/08/2023]
+--------------------------
+- Added hash/auth user method
+--------------------------
+Imitation SMM [11/07/2023]
+--------------------------
+- Created help ui
+- Created info ui
+- Added all data objects
+- Created all interfaces
+--------------------------
+Imitation SMM [11/02/2023]
+--------------------------
+- Finished login navigation
+- Created main hub wireframe
+- Almost finished main tab page
+
+--------------------------
+Imitation SMM [10/31/2023]
+--------------------------
+- Finished Login Page UI
+- Finished Register Page UI
+- Started working on login navigation
+
+--------------------------
+Imitation SMM [10/24/2023]
+--------------------------
+- Started WPF application
+- Created all projects
+
+--------------------------
+Imitation SMM [10/19/2023]
+--------------------------
+- Added a insert data to all tables that need insert
+- Created authenticate user stored procedure
+- Added insert stored procedures for all tables (I think)
+
+--------------------------
+Imitation SMM [10/18/2023]
+--------------------------
+- Setup local database
+- Created batch script
+- Created sql script
+- Finished sql table creations
+
+--------------------------
+Imitation SMM [10/14/2023]
+--------------------------
+- Created Ticket UI
+- Created Ticket Update UI
+- Created Help UI
+- Created Admin Page
+- Updated user stories
+
+--------------------------
+Imitation SMM [10/10/2023]
+--------------------------
+- Settings page UI
+- Settings edit account info UI
+- Info UI
+- Partial data dictionary finished
+- Updated main wireframe
+
+--------------------------
+Imitation SMM [10/06/2023]
+--------------------------
+- Started statement of work
+- Started user stories - wrote 30
+- Started defining tables inside Data Dictionary
+- Created login and register ui drawing

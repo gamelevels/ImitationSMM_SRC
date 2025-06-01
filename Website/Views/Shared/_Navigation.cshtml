@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+@{
+
+    ApplicationUserManager manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    var user = manager.FindById(User.Identity.GetUserId());
+    bool displayAdmin = false;
+    if (user != null)
+    {
+        displayAdmin = user.Level == 10;
+    }
+
+}
+
+<style>
+    .disabled-navigation{
+        pointer-events: none;
+        opacity: .75;
+    }
+</style>
+
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-lightgray" style="width: 220px; height: 95.2vh;">
+    <span class="align-self-center" style="font-size: 20px; font-weight: bold">Menu</span>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto d-flex" style="font-size: 20px;">
+        <li class="nav-item">
+            @Html.ActionLink("Dashboard", "Dashboard", "Main", routeValues: null, htmlAttributes: new { @class = "nav-link text-white" })
+        </li>
+
+        <li class="nav-item">
+            @Html.ActionLink("SMM Main", "SMM", "Main", routeValues: null, htmlAttributes: new { @class = "nav-link text-white" })
+        </li>
+
+        <li class="nav-item">
+            @Html.ActionLink("Tools", "Tools", "Main", routeValues: null, htmlAttributes: new { @class = "nav-link text-white disabled-navigation" })
+        </li>
+
+        <li class="nav-item">
+            @Html.ActionLink("Tickets", "Tickets", "Main", routeValues: null, htmlAttributes: new { @class = "nav-link text-white" })
+        </li>
+
+        <li class="nav-item" style="margin-top: 55vh;">
+            @if (displayAdmin)
+            {
+                @Html.ActionLink("Admin", "Index", "Admin", routeValues: null, htmlAttributes: new { @class = "nav-link text-white" })
+            }
+        </li>
+
+        <li class="nav-item">
+            @Html.ActionLink("Settings", "Settings", "Main", routeValues: null, htmlAttributes: new { @class = "nav-link text-white" })
+        </li>
+    </ul>
+</div>

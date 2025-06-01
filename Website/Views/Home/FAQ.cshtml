@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "FAQ";
+}
+
+<div class="d-flex justify-content-center align-items-center mt-3">
+    <h2 class="border border-white p-2" style="color: skyblue; background-color: dimgray; width: fit-content; border-radius: 12px">Frequently Asked Questions</h2>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="accordion text-center">
+            <div class="card mb-3 pricing-card" style="color: skyblue; background-color: dimgray;">
+                <div class="card-header">
+                    <h4 class="mb-0">
+                        <p>What the hell is this</p>
+                    </h4>
+                </div>
+
+                <div class="card-body">
+                    Social media marketing my brother
+                </div>
+            </div>
+
+            @for (int i = 1; i <= 8; i++)
+            {
+                <div class="card mb-3 pricing-card" style="color: skyblue; background-color: dimgray;">
+                    <div class="card-header">
+                        <h4 class="mb-0">
+                            <p>What is social media marketing</p>
+                        </h4>
+                    </div>
+
+                    <div class="card-body">
+                        Leave my website
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@Html.Partial("_Footer")

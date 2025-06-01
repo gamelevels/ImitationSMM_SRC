@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Settings";
+}
+
+<main class="d-flex" style="overflow-x: hidden;">
+    @Html.Partial("_Navigation")
+    <div class="m-5 bg-mainbackground border rounded-3 w-100 d-flex justify-content-between align-items-center" style="height: 85vh;">
+        <div class="col-md-6 d-flex justify-content-center" style="height: 30%;">
+            <div class="card bg-lightgray w-75">
+                <div class="card-header bg-lightgray text-light text-center">
+                    <h2>Imitation Settings</h2>
+                </div>
+                <form method="post" action="@Url.Action("Settings", "Main")">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-between">
+                        <div class="form-check">
+                            <input class="form-check-input mt-2" type="checkbox" id="cbMOTD" name="EnableMOTD" @(ViewBag.EnableMOTD ? "checked" : "")>
+                            <label class="form-check-label" for="cbMOTD">
+                                Enable MOTD
+                            </label>
+                        </div>
+                        <input type="hidden" name="userName" value="@User.Identity.Name" />
+                        <button name="btnSubmit" value="UpdateProfile" type="submit" class="form-btn mx-3 shadow-none mt-2" style="background-color: skyblue; border-color: lightblue;">Update Profile</button>
+                        <button name="btnSubmit" value="LoadHistory" type="submit" class="form-btn mx-3 shadow-none mt-2" style="background-color: skyblue; border-color: lightblue;">Load History</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="col-md-6 d-flex justify-content-center h-75">
+            <div class="card bg-lightgray w-75">
+                <div class="card-header bg-lightgray text-light text-center">
+                    <h2>Request History</h2>
+                </div>
+                <div class="card-body bg-lightgray d-flex justify-content-center">
+                    <div class="form-group">
+                        <textarea class="form-control h-100" style="background: lightgray" rows="6" readonly>
+@ViewBag.history
+</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

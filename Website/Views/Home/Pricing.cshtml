@@ -1,0 +1,62 @@
+﻿@model List<Website.Models.PriceVM>
+
+@{
+    ViewBag.Title = "Pricing";
+}
+
+<div class="d-flex justify-content-center align-items-center mt-3">
+    <h2 class="border border-white p-2 header-text text-center pricing-header" style="width: 10%">Pricing</h2>
+</div>
+
+<div class="container py-5">
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div id="purchasemodal" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-lightishgray text-center">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Unable to complete purchase at this time</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Currently, all plans are under development and are unavailable for purchase.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @foreach (var price in Model)
+        {
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm pricing-card">
+                    <div class="card-header py-3 pricing-card-header">
+                        <h4 class="my-0 fw-bold">@price.Name</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$@price.Price<small class="text-body-secondary fw-light">/mo</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4 fs-5">
+                            <li>Level <strong style="color: lightgray">@price.Level</strong></li>
+                            <li><strong style="color: lightgray">@price.Cooldown</strong> Seconds Handle Cooldown</li>
+                            <li><strong style="color: lightgray">@price.Concurrents</strong> Concurrents</li>
+                            <li>@price.Platforms</li>
+                        </ul>
+                        <button type="button" class="w-50 btn btn-lg btn-info h-25 btnpurchase">Purchase</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@Html.Partial("_Footer")
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.btnpurchase').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var modal = new bootstrap.Modal(document.getElementById('purchasemodal'));
+                modal.show();
+            });
+        });
+    });
+</script>

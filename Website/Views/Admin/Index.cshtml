@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DataObjects.models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<main class="d-flex" style="overflow-x: hidden;">
+    <div class="d-flex justify-content-center align-items-center">
+        @Html.Partial("_Navigation")
+    </div>
+
+
+    <div class="m-5 bg-mainbackground border rounded-3 w-100 d-flex justify-content-evenly" style="height: 85vh;">
+        <div class="text-center w-75">
+            <div class="d-flex justify-content-center align-items-center mt-3">
+                <h2 class="text-center mb-2 p-2 pt-1 border border-white test-header header-text">View all Users</h2>
+
+            </div>
+            <button class="btn btn-outline-cyan mb-2">
+                @Html.ActionLink("Manage APIs", "APIs", "Admin", routeValues: null, htmlAttributes: new { @class = "nav-link btn-outline-cyan" })
+            </button>
+            <button class="btn btn-outline-cyan mb-2">
+                @Html.ActionLink("Generate Register Tokens", "TokenGen", "Admin", routeValues: null, htmlAttributes: new { @class = "nav-link btn-outline-cyan" })
+            </button>
+            <button class="btn btn-outline-cyan mb-2">
+                @Html.ActionLink("View all Tickets", "Tickets", "Main", routeValues: null, htmlAttributes: new { @class = "nav-link btn-outline-cyan" })
+            </button>
+
+            <table class="table table-bordered table-dark w-100 text-center" style="background-color: #343a40;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Username</th>
+                        @*<th>Email</th>*@
+                        <th>Level</th>
+                        <th>Expiration</th>
+                        <th>Register Token</th>
+                        <th>Enabled</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr class="text-center">
+                            <td class="align-middle font-weight-bold">@Html.DisplayFor(usr => user.Username)</td>
+                            <td class="align-middle font-weight-bold">@Html.DisplayFor(usr => user.LevelInfo.Level)</td>
+                            <td class="align-middle">@Html.DisplayFor(usr => user.Expiration)</td>
+                            <td class="align-middle">@Html.DisplayFor(usr => user.Register.Token)</td>
+                            <td class="align-middle">
+                                <div class="form-check text-center d-flex justify-content-center">
+                                    <input class="form-check-input" type="checkbox" disabled @(user.Enabled ? "checked" : "") />
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                <a href="@Url.Action("Edit", "Admin", new { token = user.Register.Token })" class="btn btn-outline-cyan align-self-center">Edit</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

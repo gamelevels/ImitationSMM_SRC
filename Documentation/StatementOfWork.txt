@@ -1,0 +1,59 @@
+# ImitationSMM
+
+## Overview
+ImitationSMM is a social media marketing tool designed to facilitate various SMM tasks, such as increasing post views, interactions, and reach. It supports multiple users and is integrated with a third-party API for SMM functionalities.
+
+## Parties Involved
+- **Product Owner**
+- **Paid Clients**
+
+## Objectives
+- Develop a functional SMM panel with user profiles and historical stats.
+- Support platforms including **Twitter, TikTok, Instagram, Facebook,** and **YouTube**.
+- Deliver a lightweight SMM panel with a local database that can be easily transferred to a remote database.
+
+## Schedule and Timeline
+### WEB
+- **Start Date:** 03/08/2024
+- **Update Dates:** 
+  - 03/25/2024
+  - 04/01/2024
+  - 04/07/2024
+  - 04/08/2024
+  - 04/10/2024
+  - 04/14/2024
+  - 04/15/2024
+  - 04/18/2024
+  - 04/20/2024
+  - 04/21/2024
+  - 04/22/2024
+- **Finished Date:** 04/22/2024 1:04AM (May tweak UI if time allows)
+
+### WPF
+- **Start Date:** 10/06/2023 9:18PM
+- **Update Dates:** 
+  - 10/06/2023
+  - 10/10/2023
+  - 10/14/2023
+  - 10/18/2023
+  - 10/19/2023
+  - 10/24/2023
+  - 10/31/2023
+  - 11/02/2023
+  - 11/07/2023
+  - 11/08/2023
+  - 11/09/2023
+  - 11/11/2023
+  - 11/17/2023
+  - 11/19/2023
+  - 11/21/2023
+  - 11/22/2023
+  - 11/25/2023
+  - 11/26/2023-12/03/2023 (forgot to document)
+  - 12/04/2023
+  - 12/05/2023
+  - 12/07/2023
+- **Finished Date:** 12/07/2023 8:07PM
+
+## Resources
+The project relies on a third-party SMM API for fulfilling SMM requests.

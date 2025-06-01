@@ -1,0 +1,19 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="d-flex justify-content-between" style="width: 280px">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-outline-cyan mr-2">Home</a>
+            <a href="@Url.Action("Dashboard", "Main")" class="btn btn-outline-cyan mr-2">Dashboard</a>
+            <button type="submit" class="btn btn-outline-cyan mr-2">Sign out</button>
+        </div>
+    }
+}
+else
+{
+    <div class="col-md-4 d-flex align-items-center justify-content-md-end">
+        @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-outline-cyan me-2 mr-3" })
+        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-outline-cyan" })
+    </div>
+}

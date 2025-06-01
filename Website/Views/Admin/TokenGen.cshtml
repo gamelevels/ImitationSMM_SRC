@@ -1,0 +1,30 @@
+﻿@model List<DataObjects.models.RegisterToken>
+
+@{
+    ViewBag.Title = "Tokens";
+}
+
+
+<main class="d-flex" style="overflow-x: hidden;">
+    @Html.Partial("_Navigation")
+    <div class="m-5 bg-mainbackground border rounded-3 w-100 d-flex flex-column align-items-center" style="height: 85vh; overflow-y: auto;">
+        <div class="container" style="padding: 0px 1.5em 0px 1.5em">
+            <h1 class="text-center">
+                Token Generation
+            </h1>
+        </div>
+        <div class="container">
+            <div class="token-container">
+                <ul class="text-center" style="list-style-type: none;">
+                    @foreach (var token in Model)
+                    {
+                        <li class="token-item f4-2"><strong>@token.Token</strong> | Level <strong>@token.Level</strong> | <strong>@token.Days</strong> Days</li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <button class="btn btn-outline-cyan mb-2">
+            @Html.ActionLink("Return to Admin Page", "Index", "Admin", routeValues: null, htmlAttributes: new { @class = "nav-link btn-outline-cyan" })
+        </button>
+    </div>
+</main>

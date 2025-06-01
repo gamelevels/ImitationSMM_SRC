@@ -1,0 +1,344 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 380px;
+}
+
+.bg-lightgray {
+    background-color: rgba(105,105,105, 1);
+    color: rgba(211,211,211,1);
+}
+
+.bg-lightishgray {
+    background-color: rgba(95,95,95, 1);
+    color: rgba(211,211,211,1);
+}
+
+.bg-dimmergray {
+    background-color: rgba(75,75,75, 1);
+    color: rgba(211,211,211,1);
+}
+
+.bg-mainbackground {
+    background-color: rgba(85,85,85, 1);
+    color: rgba(211,211,211,1);
+}
+
+.btn-outline-cyan {
+    background-color: skyblue;
+    border-color: rgba(145,220,240, 1);
+}
+
+.btn-outline-cyan:hover {
+    background: lightblue;
+    color: blue;
+    border-color: rgba(145,220,240, 1);
+}
+
+section{
+
+}
+
+.btn-nav-link {
+    color: skyblue;
+    text-decoration: none;
+}
+
+.btn-nav-link:hover {
+    color: lightblue;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-div {
+    min-height: 175vh;
+}
+
+header {
+    height: 40px;
+}
+
+footer {
+/*    position: absolute;
+    left: 0;
+    bottom: -40vh;*/
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+footer hr {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+footer section {
+    justify-content: space-evenly;
+}
+
+footer h2 {
+    color: rgb(10,10,10);
+}
+
+footer section {
+    text-align: center;
+    flex-basis: 33%;
+    flex-wrap: wrap;
+}
+
+footer section ul {
+    list-style: none;
+    margin-right: 2.5em;
+}
+
+footer section ul a {
+    text-decoration: none;
+    color: rgb(64,64,64);
+}
+
+footer section ul a:hover {
+    color: rgb(167, 167, 167);
+}
+
+footer div {
+    width: 100%;
+    margin: 0 auto;
+}
+
+footer div:last-of-type {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    text-align: center;
+    align-items: center;
+}
+
+footer div:last-of-type p {
+    color: rgb(64,64,64);
+    font-size: 110%;
+    grid-column: 3/3;
+}
+
+footer div:last-of-type ul {
+    grid-column: 4/4;
+}
+
+footer div:last-of-type img {
+    border-radius: 1em;
+    background-color: lightblue;
+}
+
+.divspliter {
+    color: rgb(64,64,64);
+}
+
+.footerSocials {
+    width: 100%;
+    display: inline-block;
+    list-style: none;
+}
+
+.footerSocials li {
+    display: inline-block;
+}
+
+
+.footerSocials li a img {
+    height: 48px;
+    width: 48px;
+}
+
+.headerimg {
+    height: 40px;
+    width: 40px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+
+#testsection {
+    margin-top: 12em;
+    display: grid;
+    text-align: center;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 25% 25% 25% 25%;
+    justify-content: space-between;
+}
+
+.testcolor{
+    background-color: dimgray;;
+    color: skyblue;
+}
+
+#testsection h2 {
+    width: 100%;
+    grid-column: 3/3;
+    height: 2em;
+}
+
+#testsection figure {
+    background-color: dimgray;
+    color: lightgray;
+    border: 1px solid black;
+    height: 275%;
+    width: 85%;
+    border-radius: 8px;
+    margin-left: 1em;
+    margin-right: 1em;
+    text-align: center;
+}
+
+#testsection figure img {
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px black;
+    margin-top: 1.5em;
+    scale: inherit;
+}
+
+#test1 {
+    grid-column: 2/2;
+    grid-row: 2;
+}
+
+#test2 {
+    grid-column: 3/3;
+    grid-row: 2;
+}
+
+#test3 {
+    grid-column: 4/4;
+    grid-row: 2;
+}
+
+.login-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 1rem;
+    overflow: hidden;
+}
+
+.hr-login {
+    width: 500px;
+    margin: auto;
+}
+
+.login-footer-links {
+    color: white;
+    text-decoration: none;
+}
+
+.login-footer-links:hover {
+    color: white;
+}
+
+.form-inputs {
+    display: inline-block;
+}
+
+.login-background {
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 1);
+    backdrop-filter: blur( 6px );
+    border-radius: 10px;
+    height: 100vh;
+}
+
+.form-inputs,
+.form-check-label,
+.login-button,
+.login-footer-links {
+    font-size: 22px; 
+}
+
+.login-button{
+    height: 60px;
+}
+
+.d-flex .smm-input {
+    margin: 10px 0;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    padding: 5px 10px;
+    height: 40px;
+    color: black;
+    text-align: center;
+    background-color: lightgray;
+}
+
+.form-control{
+    text-align: center;
+    background-color: lightgray;
+    color: dimgray;
+    width: 480px;
+}
+
+.form-control:focus {
+    color: white;
+    background-color: darkgray;
+    border-color: dimgray;
+}
+
+.form-btn{
+    width: 135px;
+    height: 45px;
+    border-radius: 8px;
+}
+
+.form-textarea{
+    background-color: lightgray;
+    color: black;
+}
+
+.header-text {
+    background-color: dimgray;
+    color: skyblue;
+    border-radius: 12px;
+}
+
+.pricing-header {
+    color: skyblue;
+    background-color: dimgray;
+    border-radius: 12px;
+}
+
+.pricing-card {
+    background-color: gray;
+    color: skyblue;
+    border: none;
+    transition: transform 0.3s;
+}
+
+.pricing-card-header {
+    background-color: dimgray;
+    color: skyblue;
+}
+
+.pricing-card:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
+
